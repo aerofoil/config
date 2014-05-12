@@ -1,0 +1,114 @@
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id pnmixer
+exec --no-startup-id xfce4-volumed
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id thunar --daemon
+exec --no-startup-id nm-applet
+exec --no-startup-id python ~/.i3/alternating_layouts.py
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,secrets
+exec --no-startup-id xset b off
+
+bindsym $mod+i exec slock
+
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
+
+
+new_window 1pixel
+
+# class                 border  backgr. text    indicator
+client.focused          #ffffff #ffffff #000000 #ffffff
+client.focused_inactive #000000 #000000 #ffffff #000000
+client.unfocused        #000000 #000000 #ffffff #000000
+client.urgent           #ff0000 #ff0000 #000000 #ff0000
+
+bindsym $mod+Return exec i3-sensible-terminal
+
+bindsym $mod+q kill
+
+bindsym $mod+d exec dmenu_run -
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+Shift+f floating toggle
+
+bindsym $mod+grave workspace 0
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+F1 workspace F1
+bindsym $mod+F2 workspace F2
+bindsym $mod+F3 workspace F3
+bindsym $mod+F4 workspace F4
+bindsym $mod+F5 workspace F5
+bindsym $mod+F6 workspace F6
+bindsym $mod+F7 workspace F7
+bindsym $mod+F8 workspace F8
+bindsym $mod+F9 workspace F9
+bindsym $mod+F10 workspace F10
+bindsym $mod+F11 workspace F11
+bindsym $mod+F12 workspace F12
+
+bindsym $mod+Shift+grave move container to workspace 0
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+shift+F1 move workspace F1
+bindsym $mod+shift+F2 move workspace F2
+bindsym $mod+shift+F3 move workspace F3
+bindsym $mod+shift+F4 move workspace F4
+bindsym $mod+shift+F5 move workspace F5
+bindsym $mod+shift+F6 move workspace F6
+bindsym $mod+shift+F7 move workspace F7
+bindsym $mod+shift+F8 move workspace F8
+bindsym $mod+shift+F9 move workspace F9
+bindsym $mod+shift+F10 move workspace F10
+bindsym $mod+shift+F11 move workspace F11
+bindsym $mod+shift+F12 move workspace F12
+
+bindsym mod4+Shift+r restart
+
+#bindsym Mod4+Shift+x exit
+
+bindsym $mod+b border toggle
+
+bar{
+    status_command i3status -c ~/.i3/i3status.conf
+    position top
+    
+    colors{
+        background #000000
+        statusline #ffffff
+#                           border  back.   text
+        focused_workspace   #ffffff #ffffff #000000
+        active_workspace    #000000 #ffffff #000000
+        inactive_workspace  #000000 #000000 #ffffff
+        urgent_workspace    #ff0000 #ff0000 #000000
+        }
+}
+
+set $mod Mod4
